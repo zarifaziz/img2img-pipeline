@@ -19,5 +19,6 @@ class PipelineInterface(metaclass=abc.ABCMeta):
     """
 
     @abc.abstractmethod
-    def run(self):
+    def run(self, *args, **kwargs):
+        """Runs the pipeline"""
         raise NotImplementedError
