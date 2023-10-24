@@ -27,8 +27,7 @@ import torch; print(torch.cuda.is_available())
 
 **Run the pipeline**
 ```
-cd src
-python -m img2img_pipeline.commands.main run_pipeline
+python -m src.img2img_pipeline.commands.main run_pipeline
 ```
 
 ## Project Structure
