@@ -43,7 +43,7 @@ python -m img2img_pipeline.commands.main run_pipeline
 ├── requirements.txt
 └── src
     └── img2img_pipeline
-     Application source code
+         Application source code
 ```
 
 ## Design considerations
