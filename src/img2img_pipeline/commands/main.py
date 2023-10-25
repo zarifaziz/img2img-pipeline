@@ -36,8 +36,10 @@ def run_single_image_pipeline(
 
     Args:
         filename (str): The name of the file to process.
-        prompt (str, optional): The style prompt for the image. Defaults to "in the style of picasso".
-        model (str, optional): The model to use for the diffusion. Defaults to "stabilityai/stable-diffusion-2".
+        prompt (str, optional): The style prompt for the image. 
+            Defaults to "in the style of picasso".
+        model (str, optional): The model to use for the diffusion. 
+            Defaults to "stabilityai/stable-diffusion-2".
     """
     logger.info("Running pipeline")
     run_time = time.time()
@@ -49,7 +51,7 @@ def run_single_image_pipeline(
 
 @app.callback()
 def callback():
-    pass
+    """This is a callback function for the Typer app."""
 
 
 if __name__ == "__main__":
