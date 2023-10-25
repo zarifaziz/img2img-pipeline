@@ -37,14 +37,14 @@ Either over all the images in `data/input_images`
 python -m src.img2img_pipeline.commands.main run_all_images_pipeline
 ```
 
-Or on a specific image
+Or on a specific image by providing the `[filename]` and extra arguments
 ```
-python -m src.img2img_pipeline.commands.main run_single_image_pipeline --filename example_image.png --prompt "in the style of picasso" --model "stabilityai/stable-diffusion-2"
+python -m src.img2img_pipeline.commands.main run_single_image_pipeline example_image.png --prompt "in the style of picasso" --model "stabilityai/stable-diffusion-2"
 ```
 There are a list of prompts and models in `src/constants.py`. If `--filename` or `--prompt` are not provided,
 a default is chosen from the lists. In which case, the command can be simplified into
 ```
-python -m src.img2img_pipeline.commands.main run_single_image_pipeline --filename example_image.png
+python -m src.img2img_pipeline.commands.main run_single_image_pipeline example_image.png
 ```
 
 ## Project Structure

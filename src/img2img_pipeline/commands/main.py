@@ -42,7 +42,7 @@ def run_single_image_pipeline(
     logger.info("Running pipeline")
     run_time = time.time()
     pipeline = DiffusionSingleImagePipeline(model_class=Img2ImgModel)
-    pipeline.run(filename=filename, prompt=prompt, model=model)
+    pipeline.run(filename=filename, prompt=prompt, model_repo=model)
     run_time = round((time.time() - run_time) * 1000)
     logger.info(f"Finished running pipeline in {run_time} ms")
 
