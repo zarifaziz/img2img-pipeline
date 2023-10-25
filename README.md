@@ -1,4 +1,4 @@
-# img2img-pipeline
+ # img2img-pipeline
 
 Stable Diffusion img2img pipeline, supporting various models and images and 
 tested on NVIDIA / CUDA devices.
@@ -25,9 +25,26 @@ You must have CUDA enabled pytorch. You can check by running the following
 import torch; print(torch.cuda.is_available())
 ```
 
-**Run the pipeline**
+**Add images to the `data/input_images` directory
 ```
-python -m src.img2img_pipeline.commands.main run_pipeline
+cp example_image.png data/input_images/
+```
+
+**Run the pipeline**
+Either over all the images in `data/input_images`
+
+```
+python -m src.img2img_pipeline.commands.main run_all_images_pipeline
+```
+
+Or on a specific image
+```
+python -m src.img2img_pipeline.commands.main run_single_image_pipeline --filename example_image.png --prompt "in the style of picasso" --model "stabilityai/stable-diffusion-2"
+```
+There are a list of prompts and models in `src/constants.py`. If `--filename` or `--prompt` are not provided,
+a default is chosen from the lists. In which case, the command can be simplified into
+```
+python -m src.img2img_pipeline.commands.main run_single_image_pipeline --filename example_image.png
 ```
 
 ## Project Structure
