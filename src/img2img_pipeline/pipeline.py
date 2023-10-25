@@ -4,7 +4,7 @@ from loguru import logger
 from PIL import Image
 from tqdm import tqdm
 
-from .constants import OUTPUT_IMAGE_DIR, model_list, prompt_list
+from .constants import INPUT_IMAGE_DIR, OUTPUT_IMAGE_DIR, model_list, prompt_list
 from .interfaces import PipelineInterface, ModelInterface
 from .model import Img2ImgModel
 from .utils import get_all_images, resize_image, save_image
@@ -66,8 +66,7 @@ class DiffusionSingleImagePipeline(PipelineInterface):
 
     def run(
         self,
-        input_image_path: str,
-        output_image_path: str,
+        filename: str,
         prompt: str,
         model_repo: str,
     ) -> None:
@@ -75,13 +74,12 @@ class DiffusionSingleImagePipeline(PipelineInterface):
         Runs the diffusion pipeline for a single image.
 
         Args:
-            input_image_path: Path to the input image file
-            output_image_path: Path to save the output image file
+            file_name: filename of the input image
             prompt: The prompt for model prediction
             model_repo: The model repository to use
         """
         # Load the input image
-        input_image = Image.open(input_image_path)
+        input_image = Image.open(str(INPUT_IMAGE_DIR / filename))
 
         # Save the original dimensions
         width, height = input_image.size
@@ -98,4 +96,4 @@ class DiffusionSingleImagePipeline(PipelineInterface):
         # Resize the output image back to its original dimensions
         resized_output = output_image.resize((width, height), resample=Image.LANCZOS)
 
-        save_image(resized_output, output_image_path)
+        save_image(resized_output, str(OUTPUT_IMAGE_DIR) + f"/{filename}")

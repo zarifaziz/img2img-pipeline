@@ -12,6 +12,11 @@ app = typer.Typer()
 
 @app.command("run_all_images_pipeline")
 def run_all_images_pipeline():
+    """
+    Run the pipeline for all images in the input_images directory
+    
+    Uses a randomly chosen prompt and model for each image
+    """
     logger.info("Running pipeline")
     run_time = time.time()
     pipeline = DiffusionAllImagesPipeline(model_class=Img2ImgModel)
@@ -21,11 +26,23 @@ def run_all_images_pipeline():
 
 
 @app.command("run_single_image_pipeline")
-def run_single_image_pipeline():
+def run_single_image_pipeline(
+    filename: str,
+    prompt: str = "in the style of picasso",
+    model: str = "stabilityai/stable-diffusion-2",
+):
+    """
+    Run the pipeline for a single image.
+
+    Args:
+        filename (str): The name of the file to process.
+        prompt (str, optional): The style prompt for the image. Defaults to "in the style of picasso".
+        model (str, optional): The model to use for the diffusion. Defaults to "stabilityai/stable-diffusion-2".
+    """
     logger.info("Running pipeline")
     run_time = time.time()
     pipeline = DiffusionSingleImagePipeline(model_class=Img2ImgModel)
-    pipeline.run()
+    pipeline.run(filename=filename, prompt=prompt, model=model)
     run_time = round((time.time() - run_time) * 1000)
     logger.info(f"Finished running pipeline in {run_time} ms")
 
