@@ -3,6 +3,8 @@
 Stable Diffusion img2img pipeline, supporting various models and images and 
 tested on NVIDIA / CUDA devices.
 
+![repo banner](data/expressionistic_cat.jpg)
+
 This pipeline:
 
 1. Loads images from `data/input_images` directory
