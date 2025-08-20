@@ -11,10 +11,13 @@ OUTPUT_IMAGE_DIR = DATA_DIR / "output_images"
 memory_efficient_compute = True
 
 model_list = [
-    "runwayml/stable-diffusion-v1-5",
-    "stabilityai/stable-diffusion-2",
-    "stabilityai/stable-diffusion-2-1",
-    "CompVis/stable-diffusion-v1-4",
+    "runwayml/stable-diffusion-v1-5",        # Best for artistic styles
+    "stabilityai/stable-diffusion-2",         # Good balance
+    "stabilityai/stable-diffusion-2-1",       # Latest, best quality
+    "CompVis/stable-diffusion-v1-4",          # Creative/dreamy
+    # Add more models here if desired:
+    # "nitrosocke/Arcane-Diffusion",          # Arcane style
+    # "prompthero/openjourney",               # Midjourney-like
 ]
 
 prompt_list = [
